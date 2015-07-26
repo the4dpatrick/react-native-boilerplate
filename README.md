@@ -9,3 +9,7 @@ Includes:
 * Lodash - https://lodash.com/
 * BlueBird - https://github.com/petkaantonov/bluebird
 * Axios - https://github.com/mzabriskie/axios
+
+Todo:
+-----
+* ES6 Transpiling
