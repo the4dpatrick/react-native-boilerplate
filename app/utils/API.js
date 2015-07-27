@@ -3,6 +3,10 @@
 
 let API_URL = 'http://api.example.com';
 
+function json(response) {
+  return response.json();
+}
+
 let API = {
   login(email, password) {
     return fetch(`${API_URL}/login`, {
@@ -11,7 +15,7 @@ let API = {
         email: email,
         password: password
       })
-    });
+    }).then(json);
   }
 }
 
