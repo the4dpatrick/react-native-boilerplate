@@ -1,12 +1,16 @@
-let axios = require('axios');
+// Use fetch() for API calls
+// https://developers.google.com/web/updates/2015/03/introduction-to-fetch?hl=en
 
 let API_URL = 'http://api.example.com';
 
 let API = {
   login(email, password) {
-    return axios.post(`${API_URL}/login`), {
-      email: email,
-      password: password
+    return fetch(`${API_URL}/login`, {
+      method: 'post',
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
     });
   }
 }
