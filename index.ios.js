@@ -3,6 +3,7 @@
 let React = require('react-native');
 let LocalStorage = require('./app/stores/LocalStorage');
 let Intro = require('./app/screens/Intro');
+let Menu = require('./app/screens/Menu');
 let {
   AppRegistry,
   StyleSheet,
@@ -34,7 +35,7 @@ class ReactNativeBoilerplate extends React.Component{
     }
 
     return (
-      <Intro />
+      <Menu />
     );
   }
 };
