@@ -3,6 +3,7 @@ var React = require('react-native');
 var {
   StyleSheet,
   TabBarIOS,
+  ListView,
   Text,
   View,
 } = React;
@@ -16,18 +17,30 @@ var TabBarExample = React.createClass({
   displayName: 'TabBarExample',
 
   getInitialState: function() {
+    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
       selectedTab: 'redTab',
       notifCount: 0,
       presses: 0,
+      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
     };
   },
 
-  _renderContent: function(color: string, pageText: string, num?: number) {
+  _renderProductGrid: function(color: string, pageText: string, num?: number) {
     return (
       <View style={[styles.tabContent, {backgroundColor: color}]}>
-        <Text style={styles.tabText}>{pageText}</Text>
-        <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+      </View>
+    );
+  },
+
+  _renderBarcodeScanner: function(color: string, pageText: string, num?: number) {
+    return (
+      <View style={[styles.tabContent, {backgroundColor: color}]}>
+        <Text>Nothing</Text>
       </View>
     );
   },
@@ -46,7 +59,7 @@ var TabBarExample = React.createClass({
               selectedTab: 'blueTab',
             });
           }}>
-          {this._renderContent('#414A8C', 'Blue Tab')}
+          {this._renderProductGrid('#414A8C', 'Blue Tab')}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="search"
@@ -58,7 +71,7 @@ var TabBarExample = React.createClass({
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+          {this._renderBarcodeScanner('#783E33', 'Red Tab', this.state.notifCount)}
         </TabBarIOS.Item>
       </TabBarIOS>
     );
