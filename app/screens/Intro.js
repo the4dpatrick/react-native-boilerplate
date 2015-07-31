@@ -13,7 +13,7 @@ class Intro extends React.Component{
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          React Native Boilerplate
+          React Native Terminal
         </Text>
       </View>
     )
