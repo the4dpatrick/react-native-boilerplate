@@ -9,6 +9,6 @@
     "alt": "^0.17.1",
     "bluebird": "^2.9.34",
     "lodash": "^3.10.0",
-    "react-native": "^0.8.0"
+    "react-native": "^0.11.0"
   }
 }

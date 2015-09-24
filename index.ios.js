@@ -30,7 +30,7 @@ class ReactNativeBoilerplate extends React.Component{
   }
   render() {
     if (this.state.bootstrapped == false) {
-      return <View /> 
+      return <View />
     }
 
     return (
